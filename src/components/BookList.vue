@@ -11,7 +11,9 @@
       <book-item v-for="books in searchedBooks" :key='book.id' :book='book'/>
     </ul>
     <br><hr>
+    <ul>
     <book-form @addBook='appendBook'></book-form>
+    </ul>
   </div>
 </template>
 
@@ -40,10 +42,10 @@ export default {
     filteredBooks(){
       return _.filter(this.books, ["ownership", this.holding]);
     },
-     searchedBooks(){ const searchFilter = books =>{
+     searchedBooks(){ const searchFilter = (books) =>{
         return book.title.toLowerCase().match(this.searchInput.toLowerCase());
-        return _.filter(this.books, searchFilter);
     };
+    return _.filter(this.books, searchFilter);
   },
   components: {
     BookItem,
