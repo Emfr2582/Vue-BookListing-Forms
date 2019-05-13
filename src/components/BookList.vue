@@ -8,7 +8,7 @@
           <option v-for="filter in filters">{{ filter }}</option>
         </select>
       <ul>
-      <book-item v-for="books in searchedBooks" :key='book.id' :book='book'/>
+      <book-item v-for='book in searchedBooks' :key='book.id' :book='book'></book-item>
     </ul>
     <br><hr>
     <ul>
@@ -42,7 +42,7 @@ export default {
     filteredBooks(){
       return _.filter(this.books, ["ownership", this.holding]);
     },
-     searchedBooks(){ const searchFilter = (books) =>{
+     searchedBooks(){ const searchFilter = (book) =>{
         return book.title.toLowerCase().match(this.searchInput.toLowerCase());
     };
     return _.filter(this.books, searchFilter);
