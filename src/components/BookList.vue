@@ -7,9 +7,11 @@
         <select v-model="holding">
           <option v-for="filter in filters">{{ filter }}</option>
         </select>
+        <div>
       <ul>
       <book-item v-for='books in searchedBooks':key='book.id' :book='book'></book-item>
     </ul>
+        </div>
     <br><hr>
     <ul>
     <book-form @addBook='appendBook'></book-form>
